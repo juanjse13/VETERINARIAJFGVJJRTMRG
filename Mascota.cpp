@@ -15,9 +15,10 @@ Mascota::Mascota(){
     identification = 0;
     status = false;
     dateFall = "";
+    raza = "";
 }
 
-Mascota::Mascota(string name, int identification, string typePet, float weight, int age, string typeBlood, bool status):Mascota(){
+Mascota::Mascota(string name, int identification, string typePet, float weight, int age, string typeBlood, bool status, string raza):Mascota(){
     this->name = name;
     this->identification = identification;
     this->typePet = typePet;
@@ -25,6 +26,7 @@ Mascota::Mascota(string name, int identification, string typePet, float weight, 
     this->age = age;
     this->typeBlood = typeBlood;
     this->status = status;
+    this->raza = raza;
 }
 
 string Mascota::getStatusPet(){
@@ -48,6 +50,10 @@ void Mascota::mostrarDatosMascota(){
     if (status == true){
         cout << "La fecha de defucion de la mascota es : "<<endl;
     } 
+}
+
+int Mascota::getIdentification(){
+    return this->identification;
 }
 
 

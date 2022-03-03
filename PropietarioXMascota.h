@@ -17,10 +17,6 @@ class PropietarioXMascota{
         Propietario getPropietario();
         Mascota getMascota();
         void mostrarData();
-        void agregarMascota();
-        void agregarPropietario();
-        void cambiarStatus();
-        void eliminarPropietario();
 };
 
 
