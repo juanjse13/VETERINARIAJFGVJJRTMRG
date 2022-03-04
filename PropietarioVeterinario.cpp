@@ -27,4 +27,15 @@
      return identificacion;
  }
 
+ void Propietario::setNombre(string nombre){
+     this->nombre = nombre;
+ }
+
+ void Propietario::setEmail(string email){
+     this->email = email;
+ }
+
+void Propietario::setTelefono(int telefono){
+     this->telefono = telefono;
+ }
  

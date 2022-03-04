@@ -13,8 +13,8 @@ void Directorio::pedirDatosPropietario(){
     cin >> email;
     cout << "cual es su telefono : ";
     cin >> telefono;
-    Propietario propietario(nombre,identificacion,email,telefono);
-    agregarPropietarios(propietario);
+    Propietario propietario1(nombre,identificacion,email,telefono);
+    agregarPropietario(propietario1);
 }
 
  
@@ -26,8 +26,7 @@ void Directorio::pedirDatosMascota(){
     string typeBlood;
     string name;
     int identification;
-    bool status1;
-    string status;
+    bool status;
     string dateFall;
     cout << "Su mascota es un : ";
     cin >> typePet;
@@ -44,7 +43,7 @@ void Directorio::pedirDatosMascota(){
     cout << "Cual es la identificacion de su mascota : ";
     cin >> identification;
     status = false;
-    Mascota mascota(typePet,weight,age,typeBlood,name,identification,status,raza);
+    Mascota mascota(name,identification,typePet,weight,age,typeBlood,status,raza);
     agregarMascota(mascota);
 }
 
@@ -88,22 +87,22 @@ void Directorio::modificarPropietario(int identification){
     if(verificador == true){
         cout << "cual es su nombre : ";
         cin >> nombre;
+        propModificar.setNombre(nombre);
     }
     cout << "Quiere modificar su email? : "<<endl;
     cin >> verificador;
     if(verificador == true){
         cout << "cual es su email : ";
         cin >> email;
+        propModificar.setEmail(email);
     }
     cout << "Quiere modificar su telefono? : "<<endl;
     cin >> verificador;
     if(verificador == true){
         cout << "cual es su telefono : ";
         cin >> telefono;
+        propModificar.setTelefono(telefono);
     }
-    propModificar.setNombre(nombre);
-    propModificar.setEmail(email);
-    propModificar.setTelefono(telefono);
 }
 
 int Directorio::getCantidadPropietarios(){
@@ -111,16 +110,24 @@ int Directorio::getCantidadPropietarios(){
 }
 
 void Directorio::listarPropietarios(){
+    for(p = mapaPropietario.begin(); p != mapaPropietario.end(); p++ ){
+        cout<<"Para el usuario identificado con el numero;"<< p->first<< endl;
+        p->second.mostrarDatosPropietario();
+    }
+}
+
+void Directorio::consultarMascotasParaPropietario(int identificacion){
     for(int i = 0; i < propietariosYmascotas.size(); i++){
-        propietariosYmascotas[i].getPropietario().mostrarDatosPropietario();
-        propietariosYmascotas[i].getMascota().mostrarDatosMascota();
-        for(int j = 1; j < propietariosYmascotas.size(); j++){
-            if(propietariosYmascotas[i].getPropietario().getIdentificacion() == propietariosYmascotas[j].getPropietario().getIdentificacion()){
-                propietariosYmascotas[j].getMascota().mostrarDatosMascota();
-            }
-            else{
-                propietariosYmascotas[i].getMascota().mostrarDatosMascota();
-            }
+        if(propietariosYmascotas[i].getPropietario().getIdentificacion() == identificacion){
+            propietariosYmascotas[i].getMascota().mostrarDatosMascota();
+        }
+    }
+}
+
+void Directorio::consultarPropietariosParaMascota(int identificacion) {  
+    for(int i = 0; i < propietariosYmascotas.size(); i++){
+        if(propietariosYmascotas[i].getMascota().getIdentification() == identificacion){
+            propietariosYmascotas[i].getPropietario().mostrarDatosPropietario();
         }
     }
 }

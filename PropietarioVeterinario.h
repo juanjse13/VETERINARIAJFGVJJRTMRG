@@ -19,17 +19,13 @@ class Propietario{
         int telefono;
     public:
         // Buildings by Propietarios classes
-        void setNombre(nombre);
-        void setEmail(email);
-        voidsetTelefono(telefono);
+        void setNombre(string nombre);
+        void setEmail(string email);
+        void setTelefono(int telefono);
         Propietario(); 
         Propietario(string, int, string, int);
         int getIdentificacion();
         void mostrarDatosPropietario();
 };
-
-
-
-
 
 #endif // PROPIETARIOVETERINARIO_H

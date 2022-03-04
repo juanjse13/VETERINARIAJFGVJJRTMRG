@@ -18,6 +18,4 @@ class PropietarioXMascota{
         Mascota getMascota();
         void mostrarData();
 };
-
-
 #endif

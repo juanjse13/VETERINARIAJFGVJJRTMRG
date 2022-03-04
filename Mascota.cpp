@@ -46,7 +46,8 @@ void Mascota::mostrarDatosMascota(){
     cout << "El tipo de sangre de la mascota es : " << typeBlood << endl;
     cout << "El nombre de la mascota ees : " << name << endl;
     cout << "La identificacion de la mascota es : " << identification << endl;
-    cout << "El estado de la mascota es : " << getStatusPet() << endl;
+    cout << "El estado de la mascota es : " << status << endl;
+    cout << "La raza de la mascota es : " << raza << endl;
     if (status == true){
         cout << "La fecha de defucion de la mascota es : "<<endl;
     } 
@@ -54,6 +55,10 @@ void Mascota::mostrarDatosMascota(){
 
 int Mascota::getIdentification(){
     return this->identification;
+}
+
+void Mascota::cambiarStatusMascota(){
+    this->status = true;
 }
 
 
