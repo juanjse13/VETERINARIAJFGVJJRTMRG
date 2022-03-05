@@ -9,7 +9,7 @@ PropietarioXMascota::PropietarioXMascota(Propietario propietario, Mascota mascot
     this->mascota = mascota;
 }
 
-void PropietarioXMascota::mostrarData(){
+void PropietarioXMascota::mostrarDatos(){
     propietario.mostrarDatosPropietario();
     mascota.mostrarDatosMascota();
 }

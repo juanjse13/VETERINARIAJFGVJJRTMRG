@@ -8,12 +8,12 @@
     telefono = 0;
  } 
 
- Propietario::Propietario(string nombre, int identificacion,string email,int telefono):Propietario(){
+ Propietario::Propietario(string nombre, int identificacion,string email,int telefono){
      this->nombre = nombre;
      this->identificacion = identificacion;
      this->email = email;
      this->telefono = telefono;
- } // Two Parameters, name and identify document
+ } 
 
  void Propietario::mostrarDatosPropietario(){
      cout << "Los datos de propietario son: " << endl;
@@ -37,5 +37,12 @@
 
 void Propietario::setTelefono(int telefono){
      this->telefono = telefono;
+ }
+
+ void Propietario::setIdentificacion(int identificacion){
+     this->identificacion = identificacion;
+
+
+
  }
  
