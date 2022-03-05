@@ -5,13 +5,13 @@ void Directorio::pedirDatosPropietario(){
     int identificacion; 
     string email; 
     int telefono;
-    cout << "cual es su nombre : ";
+    cout << "Cual es su nombre? : ";
     cin >> nombre;
-    cout << "cual es su identificacion : ";
+    cout << "Cual es su identificacion? : ";
     cin >> identificacion;
-    cout << "cual es su email : ";
+    cout << "Cual es su email?: ";
     cin >> email;
-    cout << "cual es su telefono : ";
+    cout << "Cual es su telefono? : ";
     cin >> telefono;
     Propietario propietario1(nombre,identificacion,email,telefono);
     agregarPropietario(propietario1);
@@ -19,31 +19,31 @@ void Directorio::pedirDatosPropietario(){
 
  
 void Directorio::pedirDatosMascota(){
-    string typePet;
+    string tipoMascota;
     string raza;
-    float weight;
-    int age;
-    string typeBlood;
-    string name;
-    int identification;
-    bool status;
-    string dateFall;
+    float peso;
+    int edad;
+    string tipoSangre;
+    string nombre;
+    int identificacion;
+    bool estado;
+    string fechaDefuncion;
     cout << "Su mascota es un : ";
-    cin >> typePet;
-    cout << "Que raza es su " << typePet << " : ";
+    cin >> tipoMascota;
+    cout << "Que raza es su " << tipoMascota << " : ";
     cin >> raza;
     cout << "Cual es el peso de su mascota : ";
-    cin >> weight;
-    cout << "Cual es la edad de su " << typePet << " : ";
-    cin >> age;
-    cout << "Cual es el tipo de sangre de su mascota : ";
-    cin >> typeBlood;
-    cout << "Cual es el nombre de su mascota : ";
-    cin >> name;
-    cout << "Cual es la identificacion de su mascota : ";
-    cin >> identification;
-    status = false;
-    Mascota mascota(name,identification,typePet,weight,age,typeBlood,status,raza);
+    cin >> peso;
+    cout << "Cual es la edad de su " << tipoMascota << " : ";
+    cin >> edad;
+    cout << "Cual es el tipo de sangre de su " << tipoMascota << " : ";
+    cin >> tipoSangre;
+    cout << "Cual es el nombre de su mascota " << tipoMascota << " : ";
+    cin >> nombre;
+    cout << "Cual es la identificacion de su " << tipoMascota << " : ";
+    cin >> identificacion;
+    status = true;
+    Mascota mascota(nombre,identificacion,tipoMascota,peso,edad,tipoSangre,estado,raza);
     agregarMascota(mascota);
 }
 
@@ -57,38 +57,42 @@ void Directorio::agregarPropietario(Propietario propietario){
 }
 
 void Directorio::agregarMascota(Mascota mascota){
-    mapaMascota[mascota.getIdentification()] = mascota;
+    mapaMascota[mascota.getIdentificacion()] = mascota;
 }
 
 
-void Directorio::eliminarPropietarioAunaMascota(int identification){
+void Directorio::eliminarPropietarioAunaMascota(int identificacion){
     for(int i = 0; i < propietariosYmascotas.size(); i++){
-        if(propietariosYmascotas[i].getPropietario().getIdentificacion() == identification){
+        if(propietariosYmascotas[i].getPropietario().getIdentificacion() == identificacion){
             propietariosYmascotas.erase(propietariosYmascotas.begin()+i);
         }
     }
 }
 
-void Directorio::eliminarPropietario(int identification){
-    if(mapaPropietario.find(identification)!= mapaPropietario.end()){ // Buscamos la llave en el mapa (identificacion)
-        mapaPropietario.erase(identification);
+void Directorio::eliminarPropietario(int identificacion){
+    if(mapaPropietario.find(identificacion)!= mapaPropietario.end()){ // Buscamos la llave en el mapa (identificacion)
+        mapaPropietario.erase(identificacion);
     }
 }
 
-void Directorio::modificarPropietario(int identification){
-    Propietario propModificar = mapaPropietario[identification];
+void Directorio::modificarPropietario(int identificacionAntigua){
+
+    //indentificacionAntigua corresponde a la identificacion vieja--identificacion corresponde a la nueva identificacion
+    Propietario propModificar = mapaPropietario[identificacionAntigua];
     string nombre; 
     int identificacion; 
     string email; 
     bool verificador;
     int telefono;
+
     cout << "Quiere modificar su nombre? : "<<endl;
     cin >> verificador;
     if(verificador == true){
-        cout << "cual es su nombre : ";
+        cout << "Cual es su nombre : ";
         cin >> nombre;
         propModificar.setNombre(nombre);
     }
+
     cout << "Quiere modificar su email? : "<<endl;
     cin >> verificador;
     if(verificador == true){
@@ -96,6 +100,7 @@ void Directorio::modificarPropietario(int identification){
         cin >> email;
         propModificar.setEmail(email);
     }
+
     cout << "Quiere modificar su telefono? : "<<endl;
     cin >> verificador;
     if(verificador == true){
@@ -103,6 +108,18 @@ void Directorio::modificarPropietario(int identification){
         cin >> telefono;
         propModificar.setTelefono(telefono);
     }
+
+    cout << "Quiere modificar su identificacion? : "<<endl;
+    cin >> verificador;
+    if(verificador == true){
+        cout << "cual es su nueva identificacion? : ";
+        cin >> identificacion;
+        propModificar.setIdentificacion(identificacion);
+        mapaPropietario.erase(identificacionAntigua);
+        mapaPropietario[identificacion] = propModificar;
+
+    }
+
 }
 
 int Directorio::getCantidadPropietarios(){
@@ -126,7 +143,7 @@ void Directorio::consultarMascotasParaPropietario(int identificacion){
 
 void Directorio::consultarPropietariosParaMascota(int identificacion) {  
     for(int i = 0; i < propietariosYmascotas.size(); i++){
-        if(propietariosYmascotas[i].getMascota().getIdentification() == identificacion){
+        if(propietariosYmascotas[i].getMascota().getIdentificacion() == identificacion){
             propietariosYmascotas[i].getPropietario().mostrarDatosPropietario();
         }
     }

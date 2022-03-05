@@ -6,27 +6,40 @@
 #include <unordered_map>
 #include <vector>
 
-using namespace std;
+using std::string;
+using std::cin;
+using std::cout;
+using std::unordered_map;
+using std::vector;
 
 class Directorio{
     private:
+        //Atributos de la clase
         vector <PropietarioXMascota> propietariosYmascotas;
         unordered_map <int, Propietario> mapaPropietario;
         unordered_map <int, Mascota> mapaMascota;
         unordered_map <int, Propietario>::iterator p;
     public:
-        void eliminarPropietarioAunaMascota(int identification);
-        void pedirDatosMascota();
-        void agregarMascota(Mascota mascota);
-        void pedirDatosPropietario();
-        void agregarPropietariosxMascota(int, int);
+        //Otras funciones
         void agregarPropietario(Propietario propietario);
-        void eliminarPropietario(int identification);
-        void modificarPropietario(int identification);
+        void agregarMascota(Mascota mascota);
+        void modificarPropietario(int identificacion);
+        void eliminarPropietario(int identificacion);
         void listarPropietarios(); 
         int getCantidadPropietarios();
         void consultarMascotasParaPropietario(int identificacion);
         void consultarPropietariosParaMascota(int identificacion);
+        void eliminarPropietarioAunaMascota(int identificacion);
+        void pedirDatosMascota();
+        void pedirDatosPropietario();
+        void agregarPropietariosxMascota(int, int);
+        
+        
+        
+        
+        
+        
+       
 };
 
 #endif
