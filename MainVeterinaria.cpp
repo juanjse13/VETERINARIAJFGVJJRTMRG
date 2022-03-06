@@ -13,7 +13,7 @@ void menu(Directorio directorio){
     do
     {
         cout << "Bienvenido a la veterinaria clinica veterinaria del sud, totti's e ramirez restrepo, su veterinaria de confianza"<<endl;
-        cout << "seleccione la opcion que desee ejecutar"<<endl;
+        cout << "Seleccione la opcion que desee ejecutar"<<endl;
         cout << endl;
         cout << "1. Agregar nuevo propietario\n";
         cout << "2. Agregar nueva mascota\n";
