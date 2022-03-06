@@ -24,7 +24,7 @@
  }
 
  int Propietario::getIdentificacion(){
-     return identificacion;
+     return this->identificacion;
  }
 
  void Propietario::setNombre(string nombre){

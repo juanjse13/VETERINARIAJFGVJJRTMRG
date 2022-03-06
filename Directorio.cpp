@@ -48,16 +48,30 @@ void Directorio::pedirDatosMascota(){
 }
 
 void Directorio::agregarPropietariosxMascota(int identificacionPropietario,int identificacionMascota){
+    if(mapaPropietario.find(identificacion) == mapaPropietario.end() || mapaPropietario.find(identificacion) == mapaPropietario.end() ){ 
+        mapaPropietario[propietario.getIdentificacion()] = propietario;
+    }
     PropietarioXMascota propxmas(mapaPropietario[identificacionPropietario],mapaMascota[identificacionMascota]);
     propietariosYmascotas.push_back(propxmas);
 }
 
 void Directorio::agregarPropietario(Propietario propietario){
-    mapaPropietario[propietario.getIdentificacion()] = propietario;
+    if(mapaPropietario.find(identificacion) == mapaPropietario.end()){ 
+        mapaPropietario[propietario.getIdentificacion()] = propietario;
+    }
+    else{
+        cout << "El propietario ya existe en el sistema. No se puede ingresar\n";
+    }
 }
 
 void Directorio::agregarMascota(Mascota mascota){
-    mapaMascota[mascota.getIdentificacion()] = mascota;
+    if(mapaMascota.find(identificacion) == mapaMascota.end()){ 
+        mapaMascota[mascota.getIdentificacion()] = mascota;
+    }
+    else{
+        cout << "La mascota ya existe en el sistema. No se puede ingresar\n";
+    }
+    
 }
 
 

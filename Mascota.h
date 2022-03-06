@@ -16,7 +16,7 @@ class Mascota{
         int edad;
         string tipoSangre;
         string nombre;
-        int identificacion
+        int identificacion;
         bool estado;
         string fechaDefuncion;
     public:
