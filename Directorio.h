@@ -1,23 +1,41 @@
-
 #ifndef DIRECTORIO_H
 #define DIRECTORIO_H
+#include <iostream>
 #include "PropietarioXMascota.h"
-#include <map>
+#include <unordered_map>
 #include <vector>
 
-using namespace std;
+using std::string;
+using std::cin;
+using std::cout;
+using std::unordered_map;
+using std::vector;
 
 class Directorio{
     private:
-        int contadorPropietarios;
+        //Atributos de la clase
         vector <PropietarioXMascota> propietariosYmascotas;
-
+        unordered_map <int, Propietario> mapaPropietario;
+        unordered_map <int, Mascota> mapaMascota;
+        unordered_map <int, Propietario>::iterator p;
+        unordered_map <int, Mascota>::iterator q;
     public:
-        void agregarPropietarios(PropietarioXMascota);
-        void eliminarPropietario(int identification);
-        void modificarPropietario(int identification);
+        //Otras funciones
+        void agregarPropietario(Propietario propietario);
+        void agregarMascota(Mascota mascota);
+        void modificarPropietario(int identificacion);
+        void eliminarPropietario(int identificacion);
         void listarPropietarios(); 
         int getCantidadPropietarios();
+        void consultarMascotasParaPropietario(int identificacion);
+        void consultarPropietariosParaMascota(int identificacion);
+        void eliminarPropietarioAunaMascota(int identificacion);
+        void pedirDatosMascota();
+        void pedirDatosPropietario();
+        void agregarPropietariosxMascota(int, int);
+        void cambiarEstadoMascota(int);
+        void listarMascotas();
+        void eliminarMascotaAunPropietario(int);
 };
 
 #endif

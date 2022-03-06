@@ -4,24 +4,20 @@
 #include "Mascota.h"
 #include <map>
 
-using namespace std;
 
 class PropietarioXMascota{
     private:
+        //Atributos de la clase
         Propietario propietario;
         Mascota mascota;
 
     public:
-        PropietarioXMascota();
+        //Constructor de PropietarioXMascota
         PropietarioXMascota(Propietario, Mascota);
+        //Sets y gets de la clase
         Propietario getPropietario();
         Mascota getMascota();
-        void mostrarData();
-        void agregarMascota();
-        void agregarPropietario();
-        void cambiarStatus();
-        void eliminarPropietario();
+        //Otras funciones
+        void mostrarDatos();
 };
-
-
 #endif

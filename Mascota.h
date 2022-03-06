@@ -1,30 +1,34 @@
 #ifndef MASCOTA_H
 #define MASCOTA_H
 
-#include<iostream>
+#include <iostream>
 
 using std::string;
+using std::cout;
+using std::cin;
 
 class Mascota{
     private:
-        string typePet;
-        float weight;
-        int age;
-        string typeBlood;
-        string name;
-        double identification;
-        bool status;
-        string dateFall;
+        //Atributos respectivos
+        string tipoMascota;
+        string raza;
+        float peso;
+        int edad;
+        string tipoSangre;
+        string nombre;
+        int identificacion;
+        bool estado;
+        string fechaDefuncion;
     public:
-    //Mascota(string name, int identificacion, string typePet, float weight, int age, string typeBlood, bool status)
+        //Constructores de Mascota
         Mascota();
-        Mascota(string, int, string, float, int, string, bool);
+        Mascota(string, int, string, float, int, string, bool, string);
+        //Sets y gets de la clase
+        int getIdentificacion();
+        string getEstadoMascota();
+        //Otras funciones
         void mostrarDatosMascota();
-        string getStatusPet();
+        bool setEstadoMascota(bool);
 };
-
-
-
-
 
 #endif
