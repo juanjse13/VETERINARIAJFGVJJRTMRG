@@ -28,8 +28,21 @@ void Directorio::pedirDatosMascota(){
     int identificacion;
     bool estado;
     string fechaDefuncion;
-    cout << "Su mascota es un : ";
+    cout << "Su mascota es un : \n";
+    cout << "1. perro  2. gato  3. otro\n";
     cin >> tipoMascota;
+    if (tipoMascota == "1")
+    {
+        tipoMascota = "Perro";
+
+    }else if (tipoMascota =="2")
+    {
+        tipoMascota = "Gato";
+    }else
+    {
+        tipoMascota = "Otro";
+    }
+    
     cout << "Que raza es su " << tipoMascota << " : ";
     cin >> raza;
     cout << "Cual es el peso de su mascota : ";
@@ -49,9 +62,9 @@ void Directorio::pedirDatosMascota(){
 
 void Directorio::agregarPropietariosxMascota(int identificacionPropietario,int identificacionMascota){
     if(mapaPropietario.find(identificacionPropietario)== mapaPropietario.end()){
-        cout << "La identificacion " << identificacionPropietario << "no estan registrada"<<endl;
+        cout << "La identificacion " << identificacionPropietario << "no esta registrada"<<endl;
         if(mapaMascota.find(identificacionMascota)== mapaMascota.end()){
-            cout << "La identificacion " << identificacionMascota << "no estan registrada"<<endl;
+            cout << "La identificacion " << identificacionMascota << "no esta registrada"<<endl;
         }
     }
     else{
@@ -154,7 +167,7 @@ int Directorio::getCantidadPropietarios(){
 
 void Directorio::listarPropietarios(){
     for(p = mapaPropietario.begin(); p != mapaPropietario.end(); p++ ){
-        cout<<"Para el usuario identificado con el numero;"<< p->first<< endl;
+        cout<<"Para el usuario identificado con el numero: "<< p->first<< endl;
         p->second.mostrarDatosPropietario();
     }
 }
