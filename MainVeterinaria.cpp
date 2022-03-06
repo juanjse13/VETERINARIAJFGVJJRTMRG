@@ -29,7 +29,7 @@ void menu(Directorio directorio){
         cout << "12. Cambiar el estado de una mascota\n";
         cout << "13. Eliminar un propietario de una mascota\n";
         cout << "14. Eliminar un mascota a un propietario"<< endl;
-        cout << "15. Listar propietarios" << endl;
+        cout << "15. Listar Mascotas" << endl;
         cin >> opc;
 
         switch (opc)
