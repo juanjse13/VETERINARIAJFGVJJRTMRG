@@ -16,21 +16,20 @@ void menu(Directorio directorio){
         cout << "Bienvenido a la veterinaria clinica veterinaria del sud, totti's e ramirez restrepo, su veterinaria de confianza"<<endl;
         cout << "Seleccione la opcion que desee ejecutar"<<endl;
         cout << endl;
-        cout << "1. Agregar nuevo propietario\n";
-        cout << "2. Agregar nueva mascota\n";
-        cout << "3. Modificar propietario\n";
-        cout << "4. Eliminar propietario\n";
-        cout << "5. Listar propietarios\n";
-        cout << "6. Mostrar cantidad de propietarios registrados\n";
-        cout << "7. Mostrar informacion de las mascotas registradas\n";
-        cout << "8. Consultar los propietarios de una mascota\n";
-        cout << "9.Consultar las mascotas de un propietario\n";
+        cout << "1.  Agregar nuevo propietario\n";
+        cout << "2.  Agregar nueva mascota\n";
+        cout << "3.  Modificar propietario\n";
+        cout << "4.  Eliminar propietario\n";
+        cout << "5.  Listar propietarios\n";
+        cout << "6.  Mostrar cantidad de propietarios registrados\n";
+        cout << "7.  Listar Mascotas\n";
+        cout << "8.  Consultar los propietarios de una mascota\n";
+        cout << "9.  Consultar las mascotas de un propietario\n";
         cout << "10. Asociar una mascota con un propietario\n";
         cout << "11. Asociar un propietario con una mascota\n";
         cout << "12. Cambiar el estado de una mascota\n";
         cout << "13. Eliminar un propietario de una mascota\n";
         cout << "14. Eliminar una mascota de un propietario"<< endl;
-        cout << "15. Listar Mascotas" << endl;
         cin >> opc;
 
         switch (opc)
@@ -115,9 +114,6 @@ void menu(Directorio directorio){
             cout << "Ingrese la identificacion del propietario\n";
             cin >> identificacion;
             directorio.eliminarMascotaAunPropietario(identificacion);
-            break;
-        case 15:
-            directorio.listarMascotas();
             break;
         
         default:
