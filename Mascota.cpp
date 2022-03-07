@@ -4,6 +4,7 @@
 using std::cout;
 using std::cin;
 using std::endl;
+using std::string;
 
 Mascota::Mascota(){
     tipoMascota = "";
@@ -13,7 +14,7 @@ Mascota::Mascota(){
     nombre = "";
     identificacion = 0;
     estado = true;
-    fechaDefuncion = "";
+    fechaDeFuncion = "";
     raza = "";
 }
 
@@ -48,7 +49,7 @@ void Mascota::mostrarDatosMascota(){
     cout << "El estado de la mascota es : " << estado << endl;
     cout << "La raza de la mascota es : " << raza << endl;
     if (estado == false){
-        cout << "La fecha de defuncion de la mascota es : "<<endl;
+        cout << "La fecha de defuncion de la mascota es : "<< fechaDeFuncion;
     } 
 }
 
@@ -58,6 +59,10 @@ int Mascota::getIdentificacion(){
 
 bool Mascota::setEstadoMascota(bool estado){
     this->estado = estado;
+}
+
+void Mascota::setFechaDeFuncion(string fechaDeFuncion){
+    this ->fechaDeFuncion = fechaDeFuncion;
 }
 
 
