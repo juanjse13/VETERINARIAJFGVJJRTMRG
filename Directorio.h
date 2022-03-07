@@ -21,19 +21,19 @@ class Directorio{
         unordered_map <int, Mascota>::iterator q;
     public:
         //Otras funciones
-        void agregarPropietario(Propietario propietario);
-        void agregarMascota(Mascota mascota);
-        void modificarPropietario(int identificacion);
-        void eliminarPropietario(int identificacion);
+        void agregarPropietario(Propietario);
+        void agregarMascota(Mascota);
+        void modificarPropietario(int);
+        void eliminarPropietario(int);
         void listarPropietarios(); 
         int getCantidadPropietarios();
-        void consultarMascotasParaPropietario(int identificacion);
-        void consultarPropietariosParaMascota(int identificacion);
-        void eliminarPropietarioAunaMascota(int identificacion);
+        void consultarMascotasParaPropietario(int);
+        void consultarPropietariosParaMascota(int);
+        void eliminarPropietarioAunaMascota(int);
         void pedirDatosMascota();
         void pedirDatosPropietario();
         void agregarPropietariosxMascota(int, int);
-        void cambiarEstadoMascota(int);
+        void cambiarEstadoMascota(int, string);
         void listarMascotas();
         void eliminarMascotaAunPropietario(int);
 };

@@ -28,32 +28,32 @@ void Directorio::pedirDatosMascota(){
     int identificacion;
     bool estado;
     string fechaDefuncion;
-    cout << "Su mascota es un : \n";
+    cout << "La mascota es un : \n";
     cout << "1. perro  2. gato  3. otro\n";
     cin >> tipoMascota;
     if (tipoMascota == "1")
     {
-        tipoMascota = "Perro";
+        tipoMascota = "perro";
 
     }else if (tipoMascota =="2")
     {
-        tipoMascota = "Gato";
+        tipoMascota = "gato";
     }else
     {
-        tipoMascota = "Otro";
+        tipoMascota = "otro";
     }
     
-    cout << "Que raza es su " << tipoMascota << " : ";
+    cout << "La raza del " << tipoMascota << " : ";
     cin >> raza;
-    cout << "Cual es el peso de su mascota : ";
+    cout << "Cual es el peso de la mascota(en Kg) : ";
     cin >> peso;
-    cout << "Cual es la edad de su " << tipoMascota << " : ";
+    cout << "Cual es la edad de la " << tipoMascota << " : ";
     cin >> edad;
-    cout << "Cual es el tipo de sangre de su " << tipoMascota << " : ";
+    cout << "Cual es el tipo de sangre de la " << tipoMascota << " : ";
     cin >> tipoSangre;
-    cout << "Cual es el nombre de su mascota " << tipoMascota << " : ";
+    cout << "Cual es el nombre del " << tipoMascota << " : ";
     cin >> nombre;
-    cout << "Cual es la identificacion de su " << tipoMascota << " : ";
+    cout << "Cual es la identificacion del " << tipoMascota << " : ";
     cin >> identificacion;
     estado = true;
     Mascota mascota(nombre,identificacion,tipoMascota,peso,edad,tipoSangre,estado,raza);
@@ -169,13 +169,16 @@ void Directorio::listarPropietarios(){
     for(p = mapaPropietario.begin(); p != mapaPropietario.end(); p++ ){
         cout<<"Para el usuario identificado con el numero: "<< p->first<< endl;
         p->second.mostrarDatosPropietario();
+        cout << "\n";
     }
+        
 }
 
 void Directorio::listarMascotas(){
     for(q = mapaMascota.begin(); q != mapaMascota.end(); q++ ){
-        cout<<"Para la mascota identificada con el numero;"<< p->first<<endl;
-        p->second.mostrarDatosPropietario();
+        cout<<"Para la mascota identificada con el numero: "<< q->first<<endl;
+        q->second.mostrarDatosMascota();
+        cout << "\n";
     }
 }
 
@@ -195,11 +198,15 @@ void Directorio::consultarPropietariosParaMascota(int identificacion) {
     }
 }
 
-void Directorio::cambiarEstadoMascota(int identificacionMascota){
+void Directorio::cambiarEstadoMascota(int identificacionMascota, string fechaDeFuncion){
     if(mapaMascota.find(identificacionMascota)!= mapaMascota.end()){
         mapaMascota[identificacionMascota].setEstadoMascota(false);
+        mapaMascota[identificacionMascota].setFechaDeFuncion(fechaDeFuncion);
+        cout << "Estado de la mascota cambiado\n";
+
     }
+        
     else{
-        cout<<"La identificacion" << identificacionMascota << "no esta registrada" << endl;
+        cout<<"La identificacion " << identificacionMascota << " no esta registrada" << endl;
     }
 }
