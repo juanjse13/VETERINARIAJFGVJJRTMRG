@@ -5,10 +5,10 @@
     nombre = "";
     email = "";
     identificacion = 0;
-    telefono = 0;
+    telefono = "";
  } 
 
- Propietario::Propietario(string nombre, int identificacion,string email,int telefono){
+ Propietario::Propietario(string nombre, int identificacion, string email, string telefono){
      this->nombre = nombre;
      this->identificacion = identificacion;
      this->email = email;
@@ -18,7 +18,7 @@
  void Propietario::mostrarDatosPropietario(){
      cout << "Los datos de propietario son: " << endl;
      cout << "El nombre del propietario es : " << nombre << endl;
-     cout << "La dirección de correo electronico del propietario es : " << email << endl;
+     cout << "La direccion de correo electronico del propietario es : " << email << endl;
      cout << "La identificacion del propietario es : " << identificacion << endl;
      cout << "El numero de telefono del propietario es : " << telefono << endl;
  }
@@ -35,7 +35,7 @@
      this->email = email;
  }
 
-void Propietario::setTelefono(int telefono){
+void Propietario::setTelefono(string telefono){
      this->telefono = telefono;
  }
 

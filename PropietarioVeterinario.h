@@ -16,17 +16,17 @@ class Propietario{
         string nombre;
         string email;
         int identificacion;
-        int telefono;
+        string telefono;
     public:
         // Sets y gets de la clase
         void setNombre(string nombre);
         void setEmail(string email);
-        void setTelefono(int telefono);
+        void setTelefono(string telefono);
         void setIdentificacion(int identificacion);
         int getIdentificacion();
         //Constructores de propietario
         Propietario(); 
-        Propietario(string, int, string, int);
+        Propietario(string, int, string, string);
         //Otras funciones
         void mostrarDatosPropietario();
 };
