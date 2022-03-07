@@ -9,6 +9,7 @@ void menu(Directorio directorio){
     int opc = 0;
     int identificacion;
     int identificacionMascota;
+    string fechaDeFuncion;
 
     do
     {
@@ -28,7 +29,7 @@ void menu(Directorio directorio){
         cout << "11. Asociar un propietario con una mascota\n";
         cout << "12. Cambiar el estado de una mascota\n";
         cout << "13. Eliminar un propietario de una mascota\n";
-        cout << "14. Eliminar un mascota a un propietario"<< endl;
+        cout << "14. Eliminar una mascota de un propietario"<< endl;
         cout << "15. Listar Mascotas" << endl;
         cin >> opc;
 
@@ -96,9 +97,12 @@ void menu(Directorio directorio){
             break;
         
         case 12:
-            cout << "Ingrese indentifiacion de la mascota"<<endl;
+            cout << "Ingrese la indentificacion de la mascota"<<endl;
             cin >> identificacionMascota;
-            directorio.cambiarEstadoMascota(identificacionMascota);
+            cout << "Escriba la fecha de defuncion(AAA/MMM/DDD)\n";
+            cin >> fechaDeFuncion;
+            directorio.cambiarEstadoMascota(identificacionMascota, fechaDeFuncion);
+            
             break;
 
         case 13:
