@@ -11,6 +11,8 @@ void menu(Directorio directorio){
     int identificacionMascota;
     string fechaDeFuncion;
 
+    //Se crea el menú mediante un do-while
+
     do
     {
         cout << "Bienvenido a la veterinaria clinica veterinaria del sud, totti's e ramirez restrepo, su veterinaria de confianza"<<endl;
