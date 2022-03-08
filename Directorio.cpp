@@ -68,9 +68,17 @@ void Directorio::agregarPropietariosxMascota(int identificacionPropietario,int i
         }
     }
     else{
-        PropietarioXMascota propxmas(mapaPropietario[identificacionPropietario],mapaMascota[identificacionMascota]);
-        propietariosYmascotas.push_back(propxmas);
-        cout << "El procedimiento de asociacion ha sido exitoso\n";
+        for(int i = 0; i < propietariosYmascotas.size(); i++){
+            if(propietariosYmascotas[i].getPropietario().getIdentificacion() == identificacionPropietario && propietariosYmascotas[i].getMascota().getIdentificacion() == identificacionMascota){
+                cout << "El propietario y la mascota ya estan asociados";
+                return;
+            }
+        }
+        if(mapaPropietario.find(identificacionPropietario)!= mapaPropietario.end() && mapaMascota.find(identificacionMascota)!= mapaMascota.end()){
+            PropietarioXMascota propxmas(mapaPropietario[identificacionPropietario],mapaMascota[identificacionMascota]);
+            propietariosYmascotas.push_back(propxmas);
+            cout << "El procedimiento de asociacion ha sido exitoso\n";
+        }
     }
         
 }
