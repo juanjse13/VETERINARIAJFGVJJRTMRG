@@ -1,6 +1,6 @@
 #ifndef PROPIETARIOXMASCOTA_H
 #define PROPIETARIOXMASCOTA_H
-#include "PropietarioVeterinario.h"
+#include "Propietario.h"
 #include "Mascota.h"
 #include <map>
 
@@ -17,6 +17,8 @@ class PropietarioXMascota{
         //Sets y gets de la clase
         Propietario getPropietario();
         Mascota getMascota();
+        void setPropietario(Propietario);
+        void setMascota(Mascota);
         //Otras funciones
         void mostrarDatos();
 };
