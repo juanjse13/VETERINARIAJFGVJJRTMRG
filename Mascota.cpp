@@ -14,7 +14,7 @@ Mascota::Mascota(){
     nombre = "";
     identificacion = 0;
     estado = true;
-    fechaDeFuncion = "";
+    fechaDeFuncion = ""; //Inicialmente la mascota se crea en el sistema con un estado "viva" y este atributo no tendría ningún valor
     raza = "";
 }
 
@@ -39,7 +39,8 @@ string Mascota::getEstadoMascota(){
 }
 
 void Mascota::mostrarDatosMascota(){
-    string estadoVivoMuerto;
+    //Para mostrar los datos simplmente se imprimen en pantalla los valores que contengan cada uno de los atributos de la instancia
+    string estadoVivoMuerto; //Se define esta variable para almacenar el valor de un string que indique el estado de la mascota
     cout << "Los datos de la mascota son : "<<endl;
     cout <<"La mascota es un : "<< tipoMascota <<endl;
     cout << "El peso de la mascota es : " << peso << endl;
@@ -47,6 +48,8 @@ void Mascota::mostrarDatosMascota(){
     cout << "El tipo de sangre de la mascota es : " << tipoSangre << endl;
     cout << "El nombre de la mascota es : " << nombre << endl;
     cout << "La identificacion de la mascota es : " << identificacion << endl;
+
+    //Pensando en la comodidad del usuario, se crea este if para que la persona puede ver de manera más clara el estado de la mascota
     if (estado == 1)
     {
         estadoVivoMuerto = "Vivo(a)";
@@ -65,7 +68,7 @@ int Mascota::getIdentificacion(){
     return this->identificacion;
 }
 
-bool Mascota::setEstadoMascota(bool estado){
+void Mascota::setEstadoMascota(bool estado){
     this->estado = estado;
 }
 
