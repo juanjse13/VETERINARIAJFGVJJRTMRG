@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-
 using std::string;
 using std::cout;
 using std::cin;
@@ -19,7 +18,7 @@ class Mascota{
         string nombre;
         int identificacion;
         bool estado;
-        string fechaDeFuncion;
+        string fechaDefuncion;
     public:
         //Constructores de Mascota
         Mascota();
@@ -30,7 +29,8 @@ class Mascota{
         //Otras funciones
         void mostrarDatosMascota();
         bool setEstadoMascota(bool);
-        void setFechaDeFuncion(string);
+        void setFechaDefuncion(string fechaDefuncion);
+        string getFechaDefuncion();
 };
 
 #endif

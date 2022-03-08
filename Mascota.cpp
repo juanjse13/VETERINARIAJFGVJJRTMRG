@@ -4,7 +4,6 @@
 using std::cout;
 using std::cin;
 using std::endl;
-using std::string;
 
 Mascota::Mascota(){
     tipoMascota = "";
@@ -14,7 +13,7 @@ Mascota::Mascota(){
     nombre = "";
     identificacion = 0;
     estado = true;
-    fechaDeFuncion = "";
+    fechaDefuncion = "";
     raza = "";
 }
 
@@ -39,7 +38,6 @@ string Mascota::getEstadoMascota(){
 }
 
 void Mascota::mostrarDatosMascota(){
-    string estadoVivoMuerto;
     cout << "Los datos de la mascota son : "<<endl;
     cout <<"La mascota es un : "<< tipoMascota <<endl;
     cout << "El peso de la mascota es : " << peso << endl;
@@ -47,17 +45,10 @@ void Mascota::mostrarDatosMascota(){
     cout << "El tipo de sangre de la mascota es : " << tipoSangre << endl;
     cout << "El nombre de la mascota es : " << nombre << endl;
     cout << "La identificacion de la mascota es : " << identificacion << endl;
-    if (estado == 1)
-    {
-        estadoVivoMuerto = "Vivo(a)";
-    }else{
-        estadoVivoMuerto = "Fallecido(a)";
-    }
-    
-    cout << "El estado de la mascota es : " << estadoVivoMuerto << endl;
+    cout << "El estado de la mascota es : " << estado << endl;
     cout << "La raza de la mascota es : " << raza << endl;
     if (estado == false){
-        cout << "La fecha de defuncion de la mascota es : "<< fechaDeFuncion;
+        cout << "La fecha de defuncion de la mascota es : "<<endl;
     } 
 }
 
@@ -69,9 +60,13 @@ bool Mascota::setEstadoMascota(bool estado){
     this->estado = estado;
 }
 
-void Mascota::setFechaDeFuncion(string fechaDeFuncion){
-    this ->fechaDeFuncion = fechaDeFuncion;
-}
+ void Mascota::setFechaDefuncion(string fechaDefuncion){
+     this->fechaDefuncion = fechaDefuncion;
+ }
+
+ string Mascota::getFechaDefuncion(){
+     return this->fechaDefuncion;
+ }
 
 
 

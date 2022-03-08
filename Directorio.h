@@ -33,7 +33,7 @@ class Directorio{
         void pedirDatosMascota();
         void pedirDatosPropietario();
         void agregarPropietariosxMascota(int, int);
-        void cambiarEstadoMascota(int, string);
+        void cambiarEstadoMascota(int,string);
         void listarMascotas();
         void eliminarMascotaAunPropietario(int);
 };
