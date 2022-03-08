@@ -61,16 +61,32 @@ void Directorio::pedirDatosMascota(){
 }
 
 void Directorio::agregarPropietariosxMascota(int identificacionPropietario,int identificacionMascota){
+    bool agregarAsociacion; 
+    //Se verifica que tanto el propietario como la mascota esten en el sistema
     if(mapaPropietario.find(identificacionPropietario)== mapaPropietario.end()){
-        cout << "La identificacion " << identificacionPropietario << "no esta registrada"<<endl;
+        cout << "La identificacion del propietario " << identificacionPropietario << " no esta registrada"<<endl;
         if(mapaMascota.find(identificacionMascota)== mapaMascota.end()){
-            cout << "La identificacion " << identificacionMascota << "no esta registrada"<<endl;
+            cout << "La identificacion de la mascota " << identificacionMascota << " no esta registrada"<<endl;
         }
     }
     else{
-        PropietarioXMascota propxmas(mapaPropietario[identificacionPropietario],mapaMascota[identificacionMascota]);
-        propietariosYmascotas.push_back(propxmas);
-        cout << "El procedimiento de asociacion ha sido exitoso\n";
+        for(int i = 0; i < propietariosYmascotas.size(); i++){
+            //Un if que permite revisar si la relacion ya esta creada en el sistema
+            if (propietariosYmascotas[i].getPropietario().getIdentificacion() == identificacionPropietario && 
+                propietariosYmascotas[i].getMascota().getIdentificacion() == identificacionMascota)
+            {
+                cout << "La relacion ya existe en el sistema\n";
+                agregarAsociacion = false;
+            }
+        }
+        //Si agregarAsociacon == true es porque la relacion no existe en el sistema, luego pasamos a crearla
+        if (agregarAsociacion == true)
+        {
+            PropietarioXMascota propxmas(mapaPropietario[identificacionPropietario],mapaMascota[identificacionMascota]);
+            propietariosYmascotas.push_back(propxmas);
+            cout << "El procedimiento de asociacion ha sido exitoso\n";
+        }
+               
     }
         
 }
@@ -193,13 +209,22 @@ void Directorio::listarMascotas(){
 }
 
 void Directorio::consultarMascotasParaPropietario(int identificacion){
+    //Esta variable ayudara en crear un if que desplegara un mensaje si el propietario no tiene mascotas asociadas
+    bool tieneMascotas;
     if(mapaPropietario.find(identificacion)!= mapaPropietario.end()){
         cout << "Las mascotas que tiene el propietario con identificacion " << identificacion << " son:\n";
         for(int i = 0; i < propietariosYmascotas.size(); i++){
             if(propietariosYmascotas[i].getPropietario().getIdentificacion() == identificacion){
                 propietariosYmascotas[i].getMascota().mostrarDatosMascota();
+                cout << "\n";
+                tieneMascotas = true;
             }
+                
         }
+        if (tieneMascotas == false)
+        {
+            cout << "El propietario no tiene mascotas asociadas\n";
+        }   
     }else{
         cout << "El propietario con numero de identificacion " << identificacion << " no existe\n";
     }
@@ -207,13 +232,21 @@ void Directorio::consultarMascotasParaPropietario(int identificacion){
 }
 
 void Directorio::consultarPropietariosParaMascota(int identificacion) {  
+    //Esta variable ayudara en crear un if que desplegara un mensaje si la mascota no tiene propietarios asociados
+    bool tienePropietarios;
     if(mapaMascota.find(identificacion)!= mapaMascota.end()){
         cout << "Los propietarios que tiene la mascota con identificacion " << identificacion << " son:\n";
         for(int i = 0; i < propietariosYmascotas.size(); i++){
             if(propietariosYmascotas[i].getMascota().getIdentificacion() == identificacion){
                 propietariosYmascotas[i].getPropietario().mostrarDatosPropietario();
+                 cout << "\n";
+                tienePropietarios = true;
             }
         }
+        if (tienePropietarios == false)
+        {
+            cout << "La mascota no tiene propietarios asociados\n";
+        }   
     }else{
         cout << "La mascota con numero de identificacion " << identificacion << " no existe\n";
     }
