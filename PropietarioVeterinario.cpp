@@ -21,6 +21,7 @@
      cout << "La dirección de correo electronico del propietario es : " << email << endl;
      cout << "La identificacion del propietario es : " << identificacion << endl;
      cout << "El numero de telefono del propietario es : " << telefono << endl;
+     cout << endl;
  }
 
  int Propietario::getIdentificacion(){

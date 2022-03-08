@@ -1,6 +1,6 @@
 #include "Directorio.h"
 
-void Directorio::pedirDatosPropietario(){
+void Directorio::pedirDatosPropietario(){ //Pide los datos requeridos para un propietario y crea una instancia con esas variables
     string nombre; 
     int identificacion; 
     string email; 
@@ -14,11 +14,11 @@ void Directorio::pedirDatosPropietario(){
     cout << "Cual es su telefono? : ";
     cin >> telefono;
     Propietario propietario1(nombre,identificacion,email,telefono);
-    agregarPropietario(propietario1);
+    agregarPropietario(propietario1); // Utiliza la función agregarPropietario(Propietario), que añade el propietario creado al mapa de propietarios
 }
 
  
-void Directorio::pedirDatosMascota(){
+void Directorio::pedirDatosMascota(){ // Pide 
     string tipoMascota;
     string raza;
     float peso;
@@ -116,27 +116,25 @@ void Directorio::eliminarPropietario(int identificacion){
         cout << "El propietario con identificacion " << identificacion << " ha sido eliminado\n";
     }else{
         cout << "El propietario con identificacion " << identificacion << " no existe en el sistema\n";
-    }
-
-        
+    }        
 }
 
 void Directorio::modificarPropietario(int identificacionAntigua){
     if(mapaPropietario.find(identificacionAntigua)!= mapaPropietario.end()){ // Buscamos la llave en el mapa (identificacionAntigua)
          //indentificacionAntigua corresponde a la identificacion vieja--identificacion corresponde a la nueva identificacion
-        Propietario propModificar = mapaPropietario[identificacionAntigua];
         string nombre; 
         int identificacion; 
         string email; 
         bool verificador;
         int telefono;
 
+        cout << "seleccione 1 para si y 0 para no" << endl;
         cout << "Quiere modificar su nombre? : "<<endl;
         cin >> verificador;
         if(verificador == true){
             cout << "Cual es su nombre : ";
             cin >> nombre;
-            propModificar.setNombre(nombre);
+            mapaPropietario[identificacionAntigua].setNombre(nombre);
         }
 
         cout << "Quiere modificar su email? : "<<endl;
@@ -144,7 +142,7 @@ void Directorio::modificarPropietario(int identificacionAntigua){
         if(verificador == true){
             cout << "cual es su email : ";
             cin >> email;
-            propModificar.setEmail(email);
+            mapaPropietario[identificacionAntigua].setEmail(email);
         }
 
         cout << "Quiere modificar su telefono? : "<<endl;
@@ -152,7 +150,7 @@ void Directorio::modificarPropietario(int identificacionAntigua){
         if(verificador == true){
             cout << "cual es su telefono : ";
             cin >> telefono;
-            propModificar.setTelefono(telefono);
+            mapaPropietario[identificacionAntigua].setTelefono(telefono);
         }
 
         cout << "Quiere modificar su identificacion? : "<<endl;
@@ -160,15 +158,11 @@ void Directorio::modificarPropietario(int identificacionAntigua){
         if(verificador == true){
             cout << "cual es su nueva identificacion? : ";
             cin >> identificacion;
-            propModificar.setIdentificacion(identificacion);
-            mapaPropietario.erase(identificacionAntigua);
-            mapaPropietario[identificacion] = propModificar;
+            mapaPropietario[identificacionAntigua].setIdentificacion(identificacion);
         }
-
     }else{
         cout << "El propietario con numero de identificacion " << identificacionAntigua << " no existe\n";
     }
-
 }
 
 int Directorio::getCantidadPropietarios(){
@@ -180,8 +174,7 @@ void Directorio::listarPropietarios(){
         cout<<"Para el usuario identificado con el numero: "<< p->first<< endl;
         p->second.mostrarDatosPropietario();
         cout << "\n";
-    }
-        
+    }   
 }
 
 void Directorio::listarMascotas(){
@@ -193,17 +186,17 @@ void Directorio::listarMascotas(){
 }
 
 void Directorio::consultarMascotasParaPropietario(int identificacion){
-    if(mapaPropietario.find(identificacion)!= mapaPropietario.end()){
+    if(mapaPropietario.find(identificacion) != mapaPropietario.end()){
         cout << "Las mascotas que tiene el propietario con identificacion " << identificacion << " son:\n";
         for(int i = 0; i < propietariosYmascotas.size(); i++){
             if(propietariosYmascotas[i].getPropietario().getIdentificacion() == identificacion){
                 propietariosYmascotas[i].getMascota().mostrarDatosMascota();
             }
-        }
-    }else{
+        }   
+    }    
+    else{
         cout << "El propietario con numero de identificacion " << identificacion << " no existe\n";
     }
-    
 }
 
 void Directorio::consultarPropietariosParaMascota(int identificacion) {  
@@ -224,9 +217,7 @@ void Directorio::cambiarEstadoMascota(int identificacionMascota,string fechaDefu
         mapaMascota[identificacionMascota].setEstadoMascota(false);
         mapaMascota[identificacionMascota].setFechaDefuncion(fechaDefuncionMascota);
         cout << "Estado de la mascota cambiado\n";
-
     }
-        
     else{
         cout<<"La identificacion " << identificacionMascota << " no esta registrada" << endl;
     }

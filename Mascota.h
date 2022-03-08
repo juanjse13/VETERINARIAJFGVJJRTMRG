@@ -28,7 +28,7 @@ class Mascota{
         string getEstadoMascota();
         //Otras funciones
         void mostrarDatosMascota();
-        bool setEstadoMascota(bool);
+        void setEstadoMascota(bool);
         void setFechaDefuncion(string fechaDefuncion);
         string getFechaDefuncion();
 };

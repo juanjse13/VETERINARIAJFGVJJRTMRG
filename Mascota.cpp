@@ -50,13 +50,14 @@ void Mascota::mostrarDatosMascota(){
     if (estado == false){
         cout << "La fecha de defuncion de la mascota es : "<<endl;
     } 
+    cout << endl;
 }
 
 int Mascota::getIdentificacion(){
     return this->identificacion;
 }
 
-bool Mascota::setEstadoMascota(bool estado){
+void Mascota::setEstadoMascota(bool estado){
     this->estado = estado;
 }
 
