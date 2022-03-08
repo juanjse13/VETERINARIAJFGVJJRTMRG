@@ -75,6 +75,7 @@ void menu(Directorio directorio){
         
         case 9:
             cout << "Ingrese la identificacion del propietario\n";
+            cin >> identificacion;
             directorio.consultarMascotasParaPropietario(identificacion);
 
             break;
@@ -84,7 +85,7 @@ void menu(Directorio directorio){
             cin >> identificacion;
             cout << "Ingrese la identificacion de la mascota\n";
             cin >> identificacionMascota;
-            directorio.agregarPropietariosxMascota(identificacionMascota, identificacion);
+            directorio.agregarPropietariosxMascota(identificacion, identificacionMascota);
             break;
 
         case 11:
