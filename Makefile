@@ -1,11 +1,11 @@
 all: compilar
 compilar: propietario mascota propietarioXmascota directorio main
-	g++ -o out PropietarioVeterinario.o Mascota.o PropietarioXMascota.o Directorio.o MainVeterinaria.o 
-propietario: PropietarioVeterinario.cpp PropietarioVeterinario.h
-	g++ -c PropietarioVeterinario.cpp
+	g++ -o out Propietario.o Mascota.o PropietarioXMascota.o Directorio.o MainVeterinaria.o 
+propietario: Propietario.cpp Propietario.h
+	g++ -c Propietario.cpp
 mascota: Mascota.cpp Mascota.h
 	g++ -c Mascota.cpp
-propietarioXmascota: PropietarioXMascota.cpp PropietarioXMascota.h PropietarioVeterinario.h Mascota.h 
+propietarioXmascota: PropietarioXMascota.cpp PropietarioXMascota.h Propietario.h Mascota.h 
 	g++ -c PropietarioXMascota.cpp
 directorio: Directorio.cpp Directorio.h PropietarioXMascota.h
 	g++ -c Directorio.cpp
